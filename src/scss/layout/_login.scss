@@ -1,0 +1,110 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.login-div {
+    position: absolute;
+    top: 24%;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: center;
+    @include m.desktopM {
+        width: fit-content;
+        left: 5%;
+        text-align: left;
+    }
+    
+    h1 {
+        color: v.$white;
+        font-size: 28px;
+        font-weight: 400;
+        text-shadow: 5px 5px 5px #00000099;
+        line-height: 3.5rem;
+        @include m.desktopM {
+            br:nth-of-type(2) {
+                display: none;
+            }
+            font-size: 52px;
+            font-weight: 600;
+            line-height: 5.5rem;
+
+            span {
+                font-size: 65px;
+            }
+        }
+    }
+    span {
+        font-size: 42px;
+        font-weight: bold;
+    }
+}
+
+.login-popup-div {
+    width: 80%;
+    height: fit-content;
+    position: relative;
+    top: 20%;
+    margin: 0 auto;
+    h2 {
+        font-size: 40px;
+    }
+
+    form {
+        .input-div {
+            margin-bottom: 30px;
+            position: relative;
+            input {
+                font-size: 20px;
+                background: none;
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid v.$gray;
+                outline: none;
+                padding: 15px 0px 0px;
+                transition: all;
+                &:focus-visible {
+                    padding: 20px 0px 0px;
+                    &+label {
+                        font-size: 14px;
+                    }
+                }
+                &::placeholder {
+                    display: none;
+                    visibility: hidden;
+                }
+                &:not(:placeholder-shown)  {
+                    padding: 20px 0px 0px;
+                    &+label {
+                        font-size: 14px;
+                    }
+                }
+            }
+            label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 20px;
+                transition: all .1s ease-in-out;
+            }
+        }
+        .submit-div {
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+    }
+    .errors-div {
+
+        p {
+            color: v.$red;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 3rem;
+            &:first-child {
+                margin-bottom: 1rem;
+            }
+            &:only-child {
+                margin-bottom: 3rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,119 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.user-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid v.$gray;
+    border-radius: 15px;
+    padding: 10px 15px;
+    span:first-of-type {
+        display: none;
+    }
+    @include m.tablet {
+        span:first-of-type {
+            display: inline;
+        }
+        br {
+            display: none;
+        }
+    }
+    p {
+        font-size: 16px;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        line-height: 25px;
+    }
+}
+
+.department-div {
+    margin-top: 3rem;
+    h2, h3 {
+        font-size: 20px;
+        color: v.$gray;
+        margin-top: 0rem;
+    }
+    h2 {
+        margin-top: 2rem;
+        margin-bottom: .5rem;
+        color: v.$pink;
+    }
+}
+
+#anida {
+    .department-div {
+        h2 {
+            color: v.$pink;
+        }
+    }
+}
+
+#rise {
+    .department-div {
+        h2 {
+            color: v.$yellow;
+        }
+    }
+}
+
+#west {
+    .department-div {
+        h2 {
+            color: v.$wine;
+        }
+    }
+}
+
+.department-buttons-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 0 auto;
+    margin-top: 3rem;
+    @include m.tablet {
+        width: 98%;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .department-button {
+        padding: 14px 0 12px 0;
+        transition: all .3s linear;
+        z-index: 2;
+        &:hover {
+            background-color: v.$white;
+            color: v.$gray;
+            transform: scale(1.05);
+            border: 1px solid v.$gray;
+        }
+    }
+    .services-container {
+        width: -webkit-fill-available;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        .services-div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            position: relative;
+            width: -webkit-fill-available;
+            margin-top: 0rem;
+            gap: 0rem;
+            transform: scale(1);
+            z-index: 1;
+            transition: gap 0s linear, margin-top .8s linear;
+        }
+    }
+}
+
+
+
+
+
+

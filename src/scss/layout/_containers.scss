@@ -1,0 +1,85 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.first-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: -webkit-fill-available;
+    background-image: url('/build/img/bg-img-login-darken.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 82% 50%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    @include m.desktopM {
+        justify-content: flex-start;
+    }
+}
+
+.login-popup-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    background: rgb(191,191,191);
+    background: linear-gradient(90deg, rgba(191,191,191,1) 0%, rgba(238,238,238,1) 20%, rgb(238, 238, 238) 80%, rgba(191,191,191,1) 100%);
+    translate: 0 -100vh;
+    transition: all 1s ease-in-out;
+    &.show {
+        translate: 0 0;
+        display: block;
+        &+html {
+            overflow: hidden;
+        }
+    }
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 4rem;
+    margin-top: 4rem;
+    
+    @include m.tablet  {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        height: fit-content;
+        gap: 7rem;
+    }
+    @include m.desktop {
+        gap: 9rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+    @include m.mobileHoriz {
+        width: 70%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+        justify-items: center;
+        gap: 4rem 0;
+        margin: 0 auto;
+    }
+    @media(max-width: 700px) and (max-height: 550px) {
+        width: 80%;
+    }
+    @include m.desktopL {
+        gap: 8rem;
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.info-container {
+    padding: 10px 20px 30px 20px;
+}

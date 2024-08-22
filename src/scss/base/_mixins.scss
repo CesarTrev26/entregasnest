@@ -1,0 +1,55 @@
+@use 'variables' as v;
+
+@mixin mobile {
+    @media(min-width: v.$mobile) {
+        @content;
+    } 
+}
+
+@mixin mobileHoriz {
+    @media(max-width: v.$desktop) and (max-height: v.$mobileHoriz) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media(min-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin verticalTablet {
+    @media(min-width: v.$tablet) and (min-height: 1024px) and (max-height: 1366px) {
+        @content;
+    }
+}
+
+@mixin tabletXL {
+    @media(min-width: v.$tabletXL) and (min-height: 1300px) {
+        @content;
+    }
+}
+
+@mixin tabletXXL {
+    @media(min-width: v.$tabletXXL) and (min-height: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktopM {
+    @media(min-width: v.$desktopM) and (max-height: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktopL {
+    @media(min-width: v.$desktopXL) and (max-height: 1000px) {
+        @content;
+    }
+}

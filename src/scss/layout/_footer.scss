@@ -1,0 +1,116 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: v.$light_gray;
+    padding: 15px 15px;
+
+    @include m.tablet {
+        padding: 10px 25px;
+    }
+    @include m.desktop {
+        padding: 15px 25px;
+    }
+    @include m.desktopM {
+        padding: 0px 20px;
+    }
+    a {
+        width: fit-content;
+        color: v.$gray;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+    } 
+
+    .nest-footer {
+        width: 20%;
+        font-weight: 800;
+        img {
+            width: -webkit-fill-available;
+        }
+        @include m.tablet {
+            width: 12%;
+        }
+        @include m.desktop {
+            width: 12%;
+        }
+        @include m.desktopM {
+            width: 9%;
+        }
+        @include m.desktopL {
+            width: 8%;
+        }
+    }
+    .phone-footer {
+        svg {
+            width: 3vw;
+            height: 4.5vw;
+            transform: scale(1.9);
+        }
+        p {
+            font-size: 4vw;
+            margin: 0;
+        }
+        @include m.tablet {
+            svg {
+                width: 2.4vw;
+                height: 4.5vw;
+                transform: scale(1);
+            }
+            p {
+                font-size: 2.1vw;
+            }
+        }
+        @include m.desktop {
+            svg {
+                width: 2.4vw;
+                transform: scale(1.2);
+            }
+            p {
+                font-size: 2.5vw;
+            }   
+        }
+        @include m.desktopM {
+            svg {
+                width: 2vw;
+                height: 4.5vw;
+                transform: scale(.75);
+            }
+            p {
+                font-size: 1.6vw;
+            }
+        }
+        @include m.desktopL {
+            svg {
+                width: 2vw;
+                transform: scale(.7);
+            }
+            p {
+                font-size: 1.5vw;
+            }
+        }
+    
+    }
+    .gava-footer {
+        width: 33%;
+        img {
+            width: -webkit-fill-available;
+        }
+        @include m.tablet {
+            width: 20%;
+        }
+        @include m.desktop {
+            width: 20%;
+        }
+        @include m.desktopM {
+            width: 13%;
+        }
+        @include m.desktopL {
+            width: 13%;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+@use 'variables' as v;
+@use 'base/mixins' as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+h1,h2, h3, p, a, input, label, button {
+    font-family: v.$font_1;
+    font-size: 20px;
+    color: v.$gray;
+}
+
+a {
+    cursor: inherit;
+    text-decoration: none;
+}
+
+img {
+    width: 30%;
+}
+body {
+    min-height: 90vh;
+    cursor: url("/build/img/cursor2.svg"), auto;
+}
+
+button {
+     cursor: inherit;
+}
+section {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    background: rgb(191,191,191);
+    background: linear-gradient(90deg, rgba(191,191,191,1) 0%, rgba(238,238,238,1) 20%, rgb(238, 238, 238) 80%, rgba(191,191,191,1) 100%);
+    @include m.tablet {
+        padding: 6rem 6rem;
+    }
+    @include m.mobileHoriz {
+        padding: 1rem 0;
+    }
+    @include m.desktopM {
+        padding: 4rem 6rem;
+    }
+}
+
+.arrow {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border: solid #FFFFFF;
+    border-width: 0 2px 2px 0;
+    top: 6px;
+    left: 5px;
+    position: relative;
+    transform: rotate(-45deg);
+}
+
+.back-arrow {
+    width: fit-content;
+    margin: 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+}

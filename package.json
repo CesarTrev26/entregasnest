@@ -1,0 +1,35 @@
+{
+  "name": "entregaswebsite",
+  "version": "1.0.0",
+  "description": "Website made for customers that already have a project",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:build/css",
+    "css": "gulp css",
+    "dev": "gulp",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CesarTrev26/EntregasWebsite.git"
+  },
+  "author": "Cesar Treviño",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CesarTrev26/EntregasWebsite/issues"
+  },
+  "homepage": "https://github.com/CesarTrev26/EntregasWebsite#readme",
+  "devDependencies": {
+    "glob": "^10.3.12",
+    "gulp": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.75.0",
+    "sharp": "^0.33.3",
+    "shrink-pdf": "^1.0.1"
+  },
+  "dependencies": {
+    "@img/sharp-win32-x64": "^0.33.3"
+  }
+}

@@ -1,0 +1,58 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+    height: auto;
+    @include m.tablet {
+        padding: 30px;
+    }
+    @include m.desktopM {
+        padding: 25px;
+
+        &.login-header {
+            padding: 15px;
+            justify-content: left;
+
+            a {
+                position: relative;
+                left: 5%;
+            }
+        }
+    }
+    a {
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        color: v.$gray;
+        font-family: v.$font_1;
+        font-size: 28px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    img {
+        width: 30%;
+        @include m.tablet {
+            width: 25%;
+        }
+        @include m.desktop {
+            width: 20%;
+        }
+        @include m.desktopM {
+            width: 12%;
+        }
+    }
+}
+
+#anida header {
+    background-color: v.$blue;
+}
+#rise header {
+    background-color: v.$rise_gray;
+}
+#west header {
+    background-color: v.$wine;
+}
