@@ -61,7 +61,7 @@
 #west {
     .department-div {
         h2 {
-            color: v.$wine;
+            color: v.$orange;
         }
     }
 }
@@ -91,16 +91,17 @@
             border: 1px solid v.$gray;
         }
     }
-    .services-container {
+    .button-container {
         width: -webkit-fill-available;
         display: flex;
         flex-direction: column;
         align-items: center;
         position: relative;
-        .services-div {
+        .button-div{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
+            justify-content: center;
             position: relative;
             width: -webkit-fill-available;
             margin-top: 0rem;
@@ -108,7 +109,22 @@
             transform: scale(1);
             z-index: 1;
             transition: gap 0s linear, margin-top .8s linear;
+
+            p {
+                font-size: 14px;
+                text-align: center;
+            }
         }
+    }
+}
+
+.utility {
+    width: 98%;
+    @include m.tablet {
+        width: 49%;
+        margin: 0;
+        margin-top: 3rem;
+        padding: 0 1.6rem;
     }
 }
 

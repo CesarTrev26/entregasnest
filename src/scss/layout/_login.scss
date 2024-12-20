@@ -19,6 +19,19 @@
         font-weight: 400;
         text-shadow: 5px 5px 5px #00000099;
         line-height: 3.5rem;
+
+        span {
+            color: v.$white;
+            font-size: 42px;
+            font-weight: bold;
+        }
+        @include m.tablet {
+            font-size: 5vmin;
+            line-height: 5.5vmin;
+            span {
+                font-size: 6vmin;
+            }
+        }
         @include m.desktopM {
             br:nth-of-type(2) {
                 display: none;
@@ -28,13 +41,38 @@
             line-height: 5.5rem;
 
             span {
+                color: v.$white;
                 font-size: 65px;
             }
         }
     }
-    span {
-        font-size: 42px;
-        font-weight: bold;
+}
+.nest-logo {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 4vmin;
+    img {
+        width: 25%;
+    }
+    @include m.tablet {
+        img {
+            width: 20%;
+        }
+    }
+    @include m.desktop {
+        justify-content: flex-start;
+        padding-left: calc(5% + 15px);
+        margin-bottom: 15vmin;
+        img {
+            width: 15%;
+        }
+    }
+    @include m.desktopM {
+        img {
+            width: 10%;
+        }
     }
 }
 

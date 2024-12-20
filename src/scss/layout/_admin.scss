@@ -1,0 +1,248 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.admin-header {
+    background: rgb(191,191,191);
+    background: linear-gradient(90deg, rgba(191,191,191,1) 0%, rgba(238,238,238,1) 20%, rgb(238, 238, 238) 80%, rgba(191,191,191,1) 100%);
+    .admin-navbar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: v.$white;
+        text-align: center;
+        a {
+            color: v.$black;
+            font-size: 2.8vmin;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border: 1px solid #000000;
+            padding: 0.5rem 1rem;
+            transition: all .3s ease-in-out;
+            &:hover {
+                background-color: v.$gray;
+                color: v.$white;
+            }
+        }
+        @include m.tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+    }
+}
+
+#admin {
+    .admin-section {
+        .actions-div {
+            @include m.tablet {
+                column-gap: 5rem;
+                row-gap: 5rem;
+            }
+        }
+    }
+}
+.admin-content {
+    height: auto;
+    min-height: 100vh;
+    background: rgb(191,191,191);
+    background: linear-gradient(90deg, rgba(191,191,191,1) 0%, rgba(238,238,238,1) 20%, rgb(238, 238, 238) 80%, rgba(191,191,191,1) 100%);
+    font-family: v.$font_1;
+    
+    h1 {
+        font-size: 4vmin;
+        color: v.$black;
+    }
+    h2 {
+        color: v.$black;
+    }
+    .admin-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: fit-content;
+        gap: 1rem;
+        .actions-div {
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 1rem;
+            margin-bottom: 1rem;
+            a {
+                background-color: v.$green;
+                color: v.$white;
+                font-size: 3vmin;
+                padding: 0.5rem 1.5rem;
+                border-radius: 6px;
+                box-shadow: 4px 4px 8px #00000059;
+                transition: all .3s ease-in-out;
+                margin-right: 10px;
+            }
+            .red-btn {
+                background-color: v.$red;
+            }
+            .blue-btn {
+                background-color: v.$blue2;
+            }
+            .admin-link {
+                background-color: v.$white;
+                color: v.$black;
+                font-size: 3.2vmin;
+                text-align: center;
+                padding: 3rem 3rem;
+                width: 100%;
+
+                &:hover {
+                    background-color: v.$gray;
+                    color: v.$white;
+                }
+                @include m.tablet {
+                    font-size: 4vmin;
+                }
+            }
+        }
+        
+        ul {
+            font-size: 3vmin;
+            padding: 0 2rem;
+        }
+        div {
+            form {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 1rem;
+                margin-top: 0rem;
+                input {
+                    width: 45vmin;
+                }
+                button {
+                    margin: 0;
+                    width: fit-content;
+                    font-size: 12px;
+                    @include m.tablet {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            table {
+                background-color: v.$white;
+                position: relative;
+                width: 100%;
+                border-collapse: collapse;
+                margin: 0 auto;
+                color: v.$black;
+                thead {
+                    tr th {
+                        font-size: 2.5vmin;
+                        padding: 0.5rem;
+                    }
+                }
+                tr, td {
+                    border: 1.5px solid v.$black;
+                    text-align: center;
+                    height: fit-content;
+                    font-size: 2.3vmin;
+                    padding: 0.5rem;
+                }
+
+                .actions {
+                    padding: 0 10px;
+                    a {
+                        background-color: v.$light_gray;
+                        color: v.$black;
+                        display: block;
+                        width: 100%;
+                        border: 1px solid v.$black;
+                        padding: 4px 10px;
+                        margin: 1rem auto 0.5rem auto;
+                        font-size: 2.5vmin;
+                    }
+                    form {
+                        margin: 0;
+                        input {
+                            width: 80%;
+                            border: 1px solid v.$black;
+                            padding: 4px 10px;
+                            margin: 0.5rem auto 1rem auto;
+                            font-size: 2vmin;
+                        }
+                        button {
+                            background-color: v.$red;
+                            color: v.$white;
+                            display: block;
+                            width: 100%;
+                            border: 1px solid v.$black;
+                            padding: 4px 10px;
+                            margin: 1rem auto 0.5rem auto;
+                            font-size: 2.5vmin;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .form-div {
+            form {
+                display: grid;
+                grid-template-rows: auto auto auto;
+                grid-template-columns: auto auto;
+                gap: 2rem;
+                align-items: end;
+                justify-items: end;
+                width: fit-content;
+                label, input {
+                    color: v.$black;
+                }
+                label {
+                    margin-right: 0.5rem;
+                }
+                select {
+                    font-size: 3vmin;
+                    padding: 0.3rem 0;
+                }
+                input {
+                    border: none;
+                    border-bottom: 1px solid v.$black;
+                    background-color: v.$white;
+                    padding: 0.5rem;
+                    font-size: 3vmin;
+                }
+                button {
+                    font-size: 3vmin;
+                }
+                fieldset {
+                    background-color: #FFF;
+                    border-width: 2px;
+                    border-color: black;
+                    margin-top: 15px;
+                    width: 95%;
+                    @include m.desktop {
+                        width: 45%;
+                    }
+                }
+            }
+
+            #progressContainer {
+                div {
+                    p {
+                        font-family: v.$font_1;
+                        font-size: 15px;
+                        font-weight: 600;
+                        color: v.$black;
+                        margin-right: 5px;
+                    }
+                    progress {
+                        height: 15px;
+                    }
+                    .file-div {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
+

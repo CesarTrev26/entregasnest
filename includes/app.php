@@ -12,8 +12,9 @@ require 'config/database.php';
 $db = connectDB();
 
 
-/*if(!isset($_SESSION)) {
+// Start session at the beginning of the app
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
-}*/
+}
 
 ActiveRecord::setDB($db);

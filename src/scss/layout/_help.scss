@@ -1,0 +1,359 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.help {
+    .first-section {
+        background-image: url('/build/img/help-bg.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        p {
+            font-family: 'Helvetica';
+            font-weight: 600;
+            color: v.$white;
+            position: absolute;
+            top: 0;
+            margin-top: 30px;
+        }
+
+        .text-div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            h2 {
+                font-size: 7vmin;
+                color: v.$white;
+            }
+            .gray-btn {
+                background-color: #616160;
+                width: fit-content;
+                font-size: 5vmin;
+                letter-spacing: 0.5px;
+                text-transform: none;
+                padding: 12px 22px;
+                &:hover {
+                    background: v.$white;
+                }
+            }
+        }
+    }
+
+    .form-section {
+        padding: 10vmin;
+        form {
+            background-color: v.$light-gray;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10vmin;
+            padding: 6vmin;
+            border-radius: 15px;
+            .info-div  {
+                display: flex;
+                flex-direction: column;
+                row-gap: 10vmin;
+            }
+            .input-div {
+                position: relative;
+                font-size: 4.5vmin;
+                label {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    font-size: 4.5vmin;
+                    color: #616160;
+                    z-index: 0;
+                    transition: opacity 0.3s ease; // Smooth transition for hiding
+                }
+            
+                input {
+                    background-color: transparent;
+                    width: 100%;
+                    position: relative;
+                    border: none;
+                    border-bottom: 1px solid #616160;
+                    z-index: 1;
+            
+                    &:not(:placeholder-shown) + label {
+                        opacity: 0; // Hide label when input is focused or has text
+                    }
+                }
+
+                select {
+                    font-size: 4.5vmin;
+                    color: #616160;
+                    border-radius: 5px;
+                    padding: 3px 4px;
+                    transition: all 0.5s ease-in-out;
+                    @include m.desktop {
+                        font-size: 2vmin;
+                    }
+                    @include m.desktopL {
+                        font-size: 3vmin;
+                    }
+                }
+
+                #file {
+                    appearance: none;
+                    &:not(:placeholder-shown) + label {
+                        opacity: 1; // Hide label when input is focused or has text
+                    }
+                }
+                .file-label {
+                    background-color: #00000000;
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    min-height: 60px;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 2vmin;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                    opacity: 1;
+                    z-index: 1;
+                    img {
+                        width: 30px;
+                        margin-left: 10px;
+                    }
+                }
+                #file-name {
+                    position: relative;
+                    bottom: 2vmin;
+                    left: 2vmin;
+                    font-size: 4vmin;
+                    color: #616160;
+                }
+            }    
+            
+            .double-input {
+                display: flex;
+                flex-direction: column;
+                row-gap: 10vmin;
+                @include m.desktop {
+                    flex-direction: row;
+                    column-gap: 3vmin;
+                }
+            }
+            .evidence-div {
+                display: flex;
+                flex-direction: column;
+                p {
+                    font-size: 4.5vmin;
+                    margin: 0;
+                    margin-bottom: 10px;
+                }
+                label {
+                    top: 2vmin;
+                    left: 2vmin;
+                    color: #B1B1B1;
+                }
+                textarea {
+                    background-color: #00000000;
+                    border: 1px solid #616160;
+                    width: 100%;
+                    min-height: 80px;
+                    position: relative;
+                    border-radius: 5px;
+                    padding: 2vmin;
+                    z-index: 1;
+
+                    &:not(:placeholder-shown) + label {
+                        opacity: 0; // Hide label when input is focused or has text
+                    }
+                }
+                button {
+                    width: fit-content;
+                    background-color: #616160;
+                    font-size: 4vmin;
+                    margin: 0 auto;
+                    margin-top: 6vmin;
+                    padding: 1vmin 8vmin 0.8vmin 8vmin;
+                    &:hover {
+                        background: v.$white;
+                    }
+                }
+                .file-div {
+                    border: 1px solid #616160;
+                    margin-bottom: 4vmin;
+                    border-radius: 4px
+                }
+            }
+            
+        }
+        .help-errors {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            column-gap: 2rem;
+            width: 100%;
+            margin: 0 auto;
+            @include m.desktop {
+                width: 70%;
+            }
+            p {
+                background-color: v.$red;
+                color: v.$white;
+                font-size: 16px;
+                padding: 4px 15px;
+                margin: 0;
+                margin-bottom: 5px;
+                border-radius: 10px;
+                
+            }
+        }
+    }
+
+    .thanks-div {
+        display: none;
+        text-align: center;
+        padding: 0vmin 4vmin 8vmin 4vmin;
+        div {
+            h2 {
+                font-size: 5vmin;
+                margin: 0;
+            }
+            p {
+                font-size: 4.8vmin;
+                margin: 0;
+            }
+        }
+        .icons-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            column-gap: 2vmin;
+            margin-top: 8vmin;
+            .icons-div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                div {
+                    background-color: #616160;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    width: 12.5vmin;
+                    padding: 2.7vmin;
+                    margin-bottom: 10px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                p {
+                    font-weight: 600;
+                    font-size: 3.5vmin;
+                    span {
+                        font-weight: 100;
+                        font-size: 3.5vmin;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        background-color: v.$light-gray;
+        height: 14vmin;
+    }
+}
+
+@include m.desktop {
+    .help {
+        .first-section {
+            img {
+                width: 10%;
+            }
+            .text-div {
+                h2 {
+                    font-size: 6vmin;
+                }
+                .gray-btn {
+                    font-size: 4.5vmin;
+                }
+            }
+        }
+        .form-section {
+            form {
+                flex-direction: row;
+                justify-content: space-between;
+                row-gap: 7vmin;
+                padding: 4vmin;
+                .info-div {
+                    width: 45%;
+                    row-gap: 7vmin;
+                }
+                .input-div {
+                    font-size: 3vmin;
+                    label {
+                        font-size: 3vmin;
+                    }
+                }
+                .evidence-div {
+                    width: 50%;
+                    p {
+                        font-size: 3vmin;
+                    }
+                    #file-name {
+                        font-size: 3vmin;
+                    }
+                    button {
+                        font-size: 3vmin;
+                        margin-top: 1.5vmin;
+                        margin-right: 0;
+                        padding: 1vmin 6vmin 0.8vmin 6vmin;
+                    }
+                    .file-div {
+                        margin-bottom: 2vmin;
+                    }
+                }
+            }
+        }
+        .thanks-div {
+            div {
+                h2 {
+                    font-size: 4vmin;
+                }
+                p {
+                    font-size: 3.8vmin;
+                }
+            }
+            .icons-container {
+                column-gap: 8vmin;
+                .icons-div {
+                    div {
+                        width: 10vmin;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include m.tabletXL {
+    .help {
+        .thanks-div {
+            .icons-container {
+                column-gap: 4vmin;
+                .icons-div {
+                    div {
+                        width: 120px;
+                    }
+                }
+            }
+        }
+    }
+}

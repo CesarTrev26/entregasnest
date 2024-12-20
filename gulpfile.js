@@ -86,9 +86,9 @@ async function pdfcompress(done) {
         const another_out_file = path.join(outputSubDir, `${baseName}_another_compressed.pdf`);
 
         let options = {
-            compatibilityLevel: 1.4,
+            compatibilityLevel: 1.5,
             imageQuality: 100,
-            resolution: 300,
+            resolution: 400,
             in_file: file,
             out_file: out_file
         };

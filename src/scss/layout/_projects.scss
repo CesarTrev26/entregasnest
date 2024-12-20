@@ -6,7 +6,9 @@
         font-weight: 200;
         text-align: center;
         margin: 0;
+        margin-top: 4rem;
         margin-bottom: 4rem;
+        color: v.$white;
         @include m.tablet {
             font-size: 26px;
         }
@@ -17,6 +19,41 @@
     img {
         width: 100%;
         height: auto;
+    }
+    .user-data {
+        background-color: v.$white;
+        .buttons-div {
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            row-gap: 10px;
+
+            .help-div {
+                a {
+                    background-color: v.$gray;
+                    color: v.$white;
+                    font-family: 'Helvetica';
+                    font-size: 3vw;
+                    font-weight: 700;
+                    border-radius: 5px;
+                    padding: 8px 20px;
+                    transition: all .3s linear;
+                    @include m.mobileHoriz {
+                        font-size: 15px;
+                    }
+                    @include m.tablet {
+                        font-size: 12px;
+                        padding: 5.5px 18px;
+                    }
+                }
+            }
+            
+            @include m.tablet {
+                flex-direction: row;
+                row-gap: 0;
+                column-gap: 10px;
+            }
+        }
     }
     .project-div {
         width: 70%;
@@ -80,6 +117,7 @@
         h2 {
             font-weight: 700;
             font-size: 24px;
+            color: v.$gray;
             margin: auto;
             @include m.tablet {
                 font-size: 3.2vw;
@@ -140,9 +178,27 @@
             }
         }
     }
-    
 }
 
+.project-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    
+}
+.help-div {
+    a {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        img {
+            width: 20px;
+            margin-left: 5px;
+        }
+    }
+}
 .project-video-div {
     width: 100%;
     height: 100vh;
@@ -154,14 +210,23 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #000000b3;
     z-index: 999;
 
+    .background-video {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background-color: #000000b3;
+        z-index: 3;
+    }
     .project-video {
         width: 90%;
         height: fit-content;
-        transform: scale(0);
         transition: all .5s linear;
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
 
         @include m.tablet {
             width: 75%;
@@ -182,6 +247,7 @@
         right: 0;
         transition: all .5s linear;
         transform: scale(0);
+        z-index: 99;
     }
 }
 

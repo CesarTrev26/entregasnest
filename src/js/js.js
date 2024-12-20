@@ -7,15 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 500);
 
     //Put footer at bottom
-    var headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
-    var mainElem = document.getElementsByTagName("main")[0];
-    var footerElem = document.getElementsByTagName("footer")[0]
+    
+        var headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
+        var mainElem = document.getElementsByTagName("main")[0];
+        var footerElem = document.getElementsByTagName("footer")[0];
     
     if(footerElem) {
         var footerHeight = footerElem.offsetHeight;
         var mainOffset = headerHeight + footerHeight + 1;
         mainElem.style.minHeight = "calc(100vh - " + mainOffset + "px)";
-        //console.log(headerHeight, footerHeight)
+        console.log(headerHeight, footerHeight)
     }
     window.addEventListener('resize', function() {
         headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
 
 var body = document.getElementsByTagName("body")[0];
 
@@ -160,6 +162,7 @@ var body = document.getElementsByTagName("body")[0];
             
             console.log(videoDiv); // Ensure videoDiv is being found
             if (videoDiv) {
+                var bgvideo = videoDiv.querySelector('.background-video');
                 var videoelem = videoDiv.querySelector('.project-video');
                 
                 var closeBtn = videoDiv.querySelector('.close-modal-button');
@@ -170,23 +173,29 @@ var body = document.getElementsByTagName("body")[0];
                 //console.log(videoelem); Ensure videoelem is being found
                 console.log(videoHeight);
                 */
-                videoDiv.classList.toggle('show-video');
+                bgvideo.classList.toggle('show-video');
                 
                 
     
                 if (videoelem) {
-                    videoDiv.addEventListener("click", (event) => hideVideo(event, videoDiv));
+                    bgvideo.addEventListener("click", (event) => hideVideo(event, bgvideo));
                     closeBtn.addEventListener("click", (event) => hideVideo(event, closeBtn));
-                    if(videoDiv.classList.contains('show-video')) {
+                    if(bgvideo.classList.contains('show-video')) {
                         setTimeout(() => {
+                            videoDiv.style.display = "";
                             videoDiv.style.visibility = "visible";
-                            videoelem.style.transform = "scale(1)";
+                            bgvideo.style.display = "block";
+                            videoelem.style.opacity = "1";
+                            videoelem.style.visibility = "visible";
                             closeBtn.style.transform = "scale(1)";
                             body.style.overflow = "hidden";
                         }, 300);
                     } else {
+                        videoDiv.style.display = "none";
                         videoDiv.style.visibility = "hidden";
-                        videoelem.style.transform = "scale(0)";
+                        bgvideo.style.display = "none";
+                        videoelem.style.opacity = "0";
+                        videoelem.style.visibility = "hidden";
                         closeBtn.style.transform = "scale(0)";
                         body.style.overflow = "auto";
                         videoelem.pause();
@@ -199,24 +208,29 @@ var body = document.getElementsByTagName("body")[0];
 
             event.stopPropagation();
             //console.log(element)
-            
             var videoDiv = element.closest('#video-div');
+            var bgvideo = videoDiv.querySelector(".background-video");
             var videoelem = videoDiv.querySelector(".project-video");
             var closeBtn = videoDiv.querySelector('.close-modal-button');
-            videoDiv.classList.remove('show-video');
+            bgvideo.classList.remove('show-video');
             
-            if (videoDiv.classList.contains('show-video')) {
+            if (bgvideo.classList.contains('show-video')) {
                 setTimeout(() => {
                     videoDiv.style.visibility = "visible";
-                    videoelem.style.transform = "scale(1)";
+                    bgvideo.style.display = "block";
+                    videoelem.style.opacity = "1";
+                    videoelem.style.visibility = "visible";
                     closeBtn.style.transform = "scale(1)";
                     body.style.overflow = "hidden";
                 }, 300);
             } else {
                 setTimeout(() => {
+                    videoDiv.style.display = "none";
                     videoDiv.style.visibility = "hidden";
+                    bgvideo.style.display = "none";
+                    videoelem.style.visibility = "hidden";
                 }, 500);
-                videoelem.style.transform = "scale(0)";
+                videoelem.style.opacity = "0";
                 closeBtn.style.transform = "scale(0)";
                 body.style.overflow = "auto";
                 videoelem.pause();
@@ -224,64 +238,101 @@ var body = document.getElementsByTagName("body")[0];
         }
     }
 
-    function showServicesButtons(element) {
+    function showFileButtons(element) {
         
-        var servicesContainer = element.closest('.services-container');
-        var servicesDiv = element.nextElementSibling;
-        var servicesButtons = servicesDiv.querySelectorAll(".services-button");
+        var buttonsContainer = element.closest('.button-container');
+        var buttonsDiv = element.nextElementSibling;
+        var buttons = buttonsDiv.querySelectorAll(".file-button");
         var elementButton = element;
         setTimeout(() => {
             elementButtonHeight = elementButton.offsetHeight;
         }, 300)
         /*
         console.log("Enseñando botones de instalaciones...");
-        console.log(servicesContainer)
-        console.log(servicesDiv);
-        console.log(servicesButtons);
+        console.log(parkingContainer)
+        console.log(parkingDiv);
+        console.log(parkingButtons);
         */
-        servicesContainer.classList.toggle("show-services");
+        buttonsContainer.classList.toggle("show-button");
 
-        if(servicesContainer.classList.contains("show-services")) {
-            servicesDiv.style.marginTop = "1.5rem";
-            servicesDiv.style.gap = "1rem";
-            servicesDiv.style.transition = "all 1s linear, gap 0.4s linear";
+        if(buttonsContainer.classList.contains("show-button")) {
+            buttonsDiv.style.marginTop = "1.5rem";
+            buttonsDiv.style.gap = "1rem";
+            buttonsDiv.style.transition = "all 1s linear, gap 0.4s linear";
             
-            servicesButtons.forEach(el => {
+            buttons.forEach(el => {
                 el.style.width = "100%";
             });
-            servicesDiv.style.top = "0";
+            buttonsDiv.style.top = "0";
             setTimeout(() => {
                
-                servicesButtons.forEach(el => {
+                buttons.forEach(el => {
                     el.style.height = "100px";
                 });
             }, 300);
             
             
         } else {
-            servicesDiv.style.marginTop = "0";
+            buttonsDiv.style.marginTop = "0";
             
-            servicesDiv.style.top = `-${elementButtonHeight - 2}px`;
-            servicesDiv.style.transition = "all .8s linear, gap .5s linear";
+            buttonsDiv.style.top = `-${elementButtonHeight - 2}px`;
+            buttonsDiv.style.transition = "all .8s linear, gap .5s linear";
             console.log(elementButtonHeight);
             setTimeout(() => {
-                servicesButtons.forEach(el => {
+                buttons.forEach(el => {
                     el.style.height = "0";
                     
                 });
             },300);
             setTimeout(() => {
-                servicesDiv.style.gap = "0";
+                buttonsDiv.style.gap = "0";
             }, 1000);
         }
     }
+
+document.addEventListener('DOMContentLoaded', function() {
+    if(document.getElementById('updateUserForm')) {
+        var form = document.getElementById('updateUserForm');
+        
+        form.addEventListener('submit', function(event) {
+            // Show a confirmation dialog
+            var confirmUpdate = confirm("¿Está seguro de que desea actualizar este usuario?");
+            
+            // If the user does not confirm, prevent form submission
+            if (!confirmUpdate) {
+                event.preventDefault();
+            }
+        });
+    }
+});
     
+document.addEventListener('DOMContentLoaded', function() {
+    const projectSelect = document.getElementById('project_id');
+    const departmentSelect = document.getElementById('department_id');
 
+    projectSelect.addEventListener('change', function() {
+        const projectId = projectSelect.value;
+        
+        if (projectId) {
+            fetch(`/admin/customers/getDepartments?project_id=${projectId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data); // Debug: Check the data received
+                    departmentSelect.innerHTML = '<option value="">Seleccionar Departamento</option>';
+                    
+                    data.departments.forEach(department => {
+                        const option = document.createElement('option');
+                        option.value = department.id;
+                        option.textContent = department.department_name;
+                        departmentSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching departments:', error);
+                });
+        } else {
+            departmentSelect.innerHTML = '<option value="">Seleccionar Departamento</option>';
+        }
+    });
+});
 
-
-    
-
-
-
-
-    

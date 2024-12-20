@@ -37,7 +37,7 @@
 }
 
 @mixin desktop {
-    @media(min-width: v.$desktop) {
+    @media(min-width: v.$desktop) and (max-height: 1024px) {
         @content;
     }
 }
